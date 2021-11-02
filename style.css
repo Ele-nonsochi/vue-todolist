@@ -2,3 +2,13 @@
     border-left: 4px solid red;
     display: inline-block;
   }
+
+.btn-outline-primary:active{
+    background-color: white;
+    border-color: #0a58ca;
+}
+
+/*.btn-outline-primary:hover{
+    background-color: white;
+    border-color: #0a58ca;
+}*/
