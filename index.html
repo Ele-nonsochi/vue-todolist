@@ -21,7 +21,7 @@
             <div class="container">
                 <h1 class="my-3 text-center">{{ welcome }}</h1>
                 <div class="row justify-content-center">
-                    <div class="col-6">
+                    <div class="col-8">
                         <div class="tab-content" id="nav-tabContent">
 
                             <!--Tabella-container -->
@@ -30,38 +30,31 @@
                             <!--Aggiungo nuovo elemento alla lista -->
                             <div class="my-3">
                                 <div class="input-group">
-                                    <input class="form-control" placeholder="Vorrei..." />
-                                    <button class="btn btn-outline-primary" type="button"
-                                        id="button-addon1">Aggiungi</button>
+                                    <input class="form-control" placeholder="Cose da fare..." v-model="newDoText"
+                                        @keyup.enter="onAddClick">
+                                    <button class="btn btn-outline-primary" type="button" id="addButton"
+                                        @click="onAddClick">Aggiungi</button>
                                 </div>
                             </div>
 
                             <!-- Lista -->
                             <div class="list-group">
                                 <!--Elementi aggiunti -->
-                                <div class="list-group-item d-flex align-items-center py-3 border-box">
-                                    <label class="flex-fill">
-                                        <input class="form-check-input me-2" type="checkbox">
-                                        Comprare il latte
+                                <div class="list-group-item d-flex align-items-center py-3 border-box"
+                                    v-for="element, i in doList">
+                                    <label class="flex-fill"> {{i}} - {{ element }}
+                                        <!--<input class="form-check-input me-2" type="checkbox">-->
                                     </label>
 
-                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" @click="deleteClick(i)"></button>
                                 </div>
-                                <!--<div class="list-group-item d-flex align-items-center py-3">
-                                    <label class="flex-fill">
-                                        <input class="form-check-input me-2" type="checkbox">
-                                        Comprare il latte
-                                    </label>
+                                <!--<div class=" list-group-item d-flex align-items-center py-3">
+                                        <label class="flex-fill">
+                                            <input class="form-check-input me-2" type="checkbox">
+                                            Comprare il latte
+                                        </label>
 
-                                    <button type="button" class="btn-close" aria-label="Close"></button>
-                                </div>
-                                <div class="list-group-item d-flex align-items-center py-3">
-                                    <label class="flex-fill">
-                                        <input class="form-check-input me-2" type="checkbox">
-                                        Comprare il latte
-                                    </label>
-
-                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" aria-label="Close"></button>
                                 </div>-->
 
                             </div>
